@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.venv/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Local database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary scripts
+check_db.py
+check_db2.py
+check_db3.py
+patch_*.py
+patch_*.cjs
+apply_pdf.py
+brand_rename.py
+update_landing.py
+
+# Generated files
+*.pdf
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Backend development/test scripts
+backend/test_*.py
+backend/update_db.py
+
+# Frontend development scripts
+frontend/apply_*.py
+frontend/check_*.cjs
+frontend/fix_*.cjs
+frontend/fix_*.js
+frontend/fix_*.py
+frontend/patch_*.js
+frontend/rewrite_*.py
+
+# Build/editor-generated files
+*.tsbuildinfo
+frontend/vite.config.d.ts
+frontend/dashboard_test.png
