@@ -50,7 +50,7 @@ const PilotMonitoring = () => {
   }
 
   const handleDemoSimulate = async (action: string) => {
-     await fetch(`http://localhost:8001/api/pilots/${pilot.id}/demo-simulate`, {
+     await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8001/api'}/pilots/${pilot.id}/demo-simulate`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({action})

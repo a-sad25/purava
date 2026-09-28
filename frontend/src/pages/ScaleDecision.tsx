@@ -216,7 +216,7 @@ const ScaleDecision = () => {
 
             <div className="p-6 bg-slate-50 border-t border-slate-200 flex flex-col md:flex-row gap-4 justify-between items-center">
                 {verdict === 'SUCCESS' ? (
-                  <button onClick={() => window.open(`http://localhost:8001/api/dossier/pdf/${p.id}`, '_blank')} className="w-full md:w-auto px-6 py-2.5 bg-[#1F3A5F] text-white rounded-md font-medium hover:bg-slate-800 transition flex items-center justify-center gap-2 text-[14px]">
+                  <button onClick={() => window.open(`${import.meta.env.VITE_API_URL || 'http://localhost:8001/api'}/dossier/pdf/${p.id}`, '_blank')} className="w-full md:w-auto px-6 py-2.5 bg-[#1F3A5F] text-white rounded-md font-medium hover:bg-slate-800 transition flex items-center justify-center gap-2 text-[14px]">
                     <Download size={16}/> Generate Procurement & Evidence Brief (PDF)
                   </button>
                 ) : verdict === 'PARTIAL' ? (
