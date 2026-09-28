@@ -50,12 +50,23 @@ const PilotMonitoring = () => {
   }
 
   const handleDemoSimulate = async (action: string) => {
-     await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8001/api'}/pilots/${pilot.id}/demo-simulate`, {
+     const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8001/api'}/pilots/${pilot.id}/demo-simulate`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({action})
      });
-     window.location.reload();
+     
+     if (res.ok) {
+       try {
+         const data = await getPilots();
+         const updatedPilot = (data || []).find((p: any) => p.id === Number(id));
+         if (updatedPilot) {
+           setPilot(updatedPilot);
+         }
+       } catch (err) {
+         console.error("Failed to refresh pilot state after simulation", err);
+       }
+     }
   };
 
   const achievementPct = ((kpi.baseline - kpi.current) / kpi.baseline * 100).toFixed(1);
